@@ -3,6 +3,9 @@ const cardNumberError = document.getElementById('cardnumber-error')
 const dateError = document.getElementById('dateError')
 const cvcError = document.getElementById('cvcError')
 
+const SuccessView = document.querySelector('.main__success')
+const formView = document.querySelector('.main__form')
+
 function validateForm(){
     const cardHolder = document.getElementById('cardholder')
     const cardNumber = document.getElementById('cardnumber')
@@ -10,42 +13,56 @@ function validateForm(){
     const year = document.getElementById('year')
     const cvc = document.getElementById('cvc')
 
+    const cardImageNumbers = document.querySelector('.card_front__numbers')
+    const cardImageName = document.querySelector('.card_front__name')
+    const cardImageDate = document.querySelector('.card_front__exp')
+    const cardImageCVC = document.querySelector('.card_back__cvc')
+
+    let errorCount = 0
     if(cardHolder.value.trim() == ''){
         cardholderError.style.display = 'unset'
         cardHolder.classList.toggle('form__input_error--active', true)
+        errorCount++
     }else{
         cardHolder.classList.toggle('form__input_error--active', false)
         cardholderError.style.display = 'none'
+        cardImageName.innerText = cardHolder.value.toUpperCase()
     }
     
     if(cardNumber.value.trim() == ''){
         cardNumberError.innerText = "Can't be blank"
         cardNumber.classList.toggle('form__input_error--active', true)
         cardNumberError.style.display = 'unset'
+        errorCount++
     }else if(!Number(cardNumber.value.split(' ').join(''))){
         cardNumberError.innerText = "Wrong Format, numbers only"
         cardNumber.classList.toggle('form__input_error--active', true)
         cardNumberError.style.display = 'unset'
+        errorCount++
     }else{
         cardNumberError.style.display = 'none'
         cardNumber.classList.toggle('form__input_error--active', false)
+        cardImageNumbers.innerText = cardNumber.value
     }
 
-    let errorCount = 0
+    let dateErrorCount = 0
     if(month.value.trim()==''){
         dateError.innerText = "Can't be blank"
         dateError.style.display = 'unset'
         month.classList.toggle('form__input_error--active', true)
-        errorCount++;
+        dateErrorCount++;
+        errorCount++
     }else if(!Number(month.value.split(' ').join(''))){
         dateError.innerText = 'Invalid value'
         dateError.style.display='unset'
         month.classList.toggle('form__input_error--active', true)
-        errorCount++;
+        dateErrorCount++;
+        errorCount++
     }else if(Number(month.value.split(' ').join('')) > 12 || Number(month.value.split(' ').join('')) < 0){
         dateError.innerText = 'Invalid value'
         dateError.style.display = 'unset'
-        errorCount++;
+        dateErrorCount++;
+        errorCount++
     }else{
         month.classList.toggle('form__input_error--active', false)
     }
@@ -54,36 +71,53 @@ function validateForm(){
         dateError.innerText = "Can't be blank"
         dateError.style.display = 'unset'
         year.classList.toggle('form__input_error--active', true)
+        errorCount++
     }else if(!Number(year.value.split(' ').join(''))){
         dateError.innerText = 'Invalid value'
         dateError.style.display = 'unset'
         year.classList.toggle('form__input_error--active', true)
+        errorCount++
     }else if(Number(year.value.split(' ').join('')) < 23 || Number(year.value.split(' ').join('')) > 30){
         dateError.innerText = 'Invalid value'
         dateError.style.display = 'unset'
         year.classList.toggle('form__input_error--active', true)
+        errorCount++
     }else{
         year.classList.toggle('form__input_error--active', false)
-        if(!errorCount)
+        if(!dateErrorCount)
             dateError.style.display='none'
+            cardImageDate.innerText = `${month.value}/${year.value}`
     }
 
     if(cvc.value.trim()==''){
         cvcError.innerText = "Can't be blank"
         cvcError.style.display = 'unset'
         cvc.classList.toggle('form__input_error--active', true)
+        errorCount++
     }else if(!Number(cvc.value.split(' ').join(''))){
         cvcError.innerText = "Invalid Value"
         cvcError.style.display = 'unset'
         cvc.classList.toggle('form__input_error--active', true)
+        errorCount++
     }else if(cvc.value.length > 3 || cvc.value.length < 3){
         cvcError.innerText = "Invalid Value"
         cvcError.style.display = 'unset'
         cvc.classList.toggle('form__input_error--active', true)
+        errorCount++
     }else{
         cvcError.style.display = 'none'
         cvc.classList.toggle('form__input_error--active', false)
+        cardImageCVC.innerText = cvc.value.trim()
     }
+
+    if(errorCount>0)
+        return
+    
+    SuccessView.style.display = 'flex'
+    formView.style.display = 'none'
+    
+    
+    
 }
 
 
