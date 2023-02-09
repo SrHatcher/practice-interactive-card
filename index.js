@@ -84,9 +84,14 @@ function validateForm(){
         errorCount++
     }else{
         year.classList.toggle('form__input_error--active', false)
-        if(!dateErrorCount)
+        if(!dateErrorCount){
             dateError.style.display='none'
-            cardImageDate.innerText = `${month.value}/${year.value}`
+            let correctMonth
+            if(month.value.length < 2){
+                correctMonth = `0${month.value}`
+            }
+            cardImageDate.innerText = `${correctMonth}/${year.value}`
+        }
     }
 
     if(cvc.value.trim()==''){
