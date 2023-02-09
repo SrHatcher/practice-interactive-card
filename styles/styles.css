@@ -241,3 +241,100 @@ button:active{
 .main__success button{
     width: 100%;
 }
+
+@media screen and (min-width: 1200px){
+    body{    
+        background-image: url('../images/bg-main-desktop.png');
+        background-position: left;
+        background-size: auto 100%;
+    }
+    main{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        max-width: unset;
+        width: 105rem;
+
+        background-color: rgba(255, 0, 0, 0.322);
+    }
+    .main__cards_container{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    
+        max-width: 39rem;
+        width: 100%;
+        height: 25rem;
+        margin-block-end: 4rem;
+
+        background-color: rgba(0, 0, 255, 0.555);
+    }
+    .card_back__container{
+        position: relative;
+    
+        width: 29rem;
+        height: 16rem;
+    }
+    .card_back__cvc{
+        position: absolute;
+        top: 7rem;
+        right: 4rem;
+    
+        letter-spacing: 0.1rem;
+        font-size: 1.2rem;
+    
+        color: white;
+    }
+    .card_front__container{
+        position: absolute;
+        top: 9rem;
+        left: 0;
+    
+        width: 29rem;
+        height: 16rem;
+    }
+    .card_front__logo{
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+    
+        width: 6.5rem;
+        height: 3.5rem;
+        
+        background-image: url('../images/card-logo.svg');
+        background-size: 6.5rem 3.5rem;
+        background-repeat: no-repeat;
+    }
+    .card_front__numbers{
+         position: absolute;
+         top: 9rem;
+         left: 2rem;
+    
+        letter-spacing: 0.2rem;
+    
+         color: white;
+    }
+    .card_front__name{
+        position: absolute;
+        top: 13rem;
+        left: 2rem;
+    
+        letter-spacing: 0.2rem;
+        font-size: 1rem;
+    
+        color: white;
+    }
+    .card_front__exp{
+        position: absolute;
+        top: 13rem;
+        left: 23rem;
+    
+        font-size: 1rem;
+        letter-spacing: 0.2rem;
+    
+        color: white;
+    }
+    
+}
