@@ -255,86 +255,67 @@ button:active{
 
         max-width: unset;
         width: 105rem;
-
-        background-color: rgba(255, 0, 0, 0.322);
     }
     .main__cards_container{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+        justify-content: end;
     
-        max-width: 39rem;
-        width: 100%;
-        height: 25rem;
-        margin-block-end: 4rem;
-
-        background-color: rgba(0, 0, 255, 0.555);
+        max-width: unset;
+        width: 54rem;
+        height: 53rem;
+        margin-block-end: unset;
     }
-    .card_back__container{
-        position: relative;
-    
-        width: 29rem;
-        height: 16rem;
+    .card_back__container{    
+        width: 45rem;
+        height: 24.5rem;
     }
     .card_back__cvc{
-        position: absolute;
-        top: 7rem;
-        right: 4rem;
+        top: 10.8rem;
+        right: 6rem;
     
-        letter-spacing: 0.1rem;
-        font-size: 1.2rem;
-    
-        color: white;
+        font-size: 1.8rem;
     }
     .card_front__container{
-        position: absolute;
-        top: 9rem;
-        left: 0;
+        top: 0;
     
-        width: 29rem;
-        height: 16rem;
+        width: 45rem;
+        height: 24.5rem;
     }
     .card_front__logo{
-        position: absolute;
-        top: 2rem;
-        left: 2rem;
+        top: 2.5rem;
+        left: 2.5rem;
     
-        width: 6.5rem;
-        height: 3.5rem;
+        width: 8.5rem;
+        height: 6rem;
         
         background-image: url('../images/card-logo.svg');
-        background-size: 6.5rem 3.5rem;
-        background-repeat: no-repeat;
+        background-size: 8.5rem;
     }
     .card_front__numbers{
-         position: absolute;
-         top: 9rem;
-         left: 2rem;
+         top: 14rem;
+         left: 2.5rem;
     
-        letter-spacing: 0.2rem;
-    
-         color: white;
+        font-size: 2.8rem;
     }
     .card_front__name{
-        position: absolute;
-        top: 13rem;
-        left: 2rem;
+        top: 20rem;
+        left: 2.5rem;
     
-        letter-spacing: 0.2rem;
-        font-size: 1rem;
-    
-        color: white;
+        font-size: 1.6rem;
     }
     .card_front__exp{
-        position: absolute;
-        top: 13rem;
-        left: 23rem;
+        top: 20rem;
+        left: 33rem;
     
-        font-size: 1rem;
-        letter-spacing: 0.2rem;
-    
-        color: white;
+        font-size: 1.6rem;
     }
-    
+
+    .main__form{    
+        max-width: 38rem;
+    }
+    .form__inputs_container{
+        margin-block-end: 3rem;
+    }
+    button{
+        margin-block-start: 1.5rem;
+    }
 }
