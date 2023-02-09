@@ -3,49 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <!--Modern CSS reset-->
+  <link rel="stylesheet" href="./styles/reset.css">
+  <!--My styles-->
+  <link rel="stylesheet" href="./styles/styles.css">
   <title>Frontend Mentor | Interactive card details form</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <main>
+    <div class="main__cards_container">
+      <div class="card_back__container">
+        <img src="./images/bg-card-back.png" alt="back side of a credit card">
+      </div>
+      <div class="card_front__container">
+        <span class="card_front__logo"></span>
+        <p class="card_front__numbers">0000 0000 0000 0000</p>
+        <p class="card_front__name">JANE APPLESEED</p>
+        <P class="card_front__exp">00/00</P>
+        <img src="./images/bg-card-front.png" alt="front side of a credit card">
+      </div>
+    </div>
 
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
+    <form action="" class="main__form" autocomplete="off">
+      <div class="form__inputs_container">
+        <label for="cardholder">CARDHOLDER NAME</label>
+        <input type="text" placeholder="e.g. Jane Appleseed" autocomplete="off" id="cardholder">
+        <span class="form__error" id="cardholder-error">Can't be blank</span>
+      </div>
+      
+      <div class="form__inputs_container">
+        <label for="cardnumber">CARD NUMBER</label>
+        <input type="text" placeholder="e.g. 1234 5678 9123 0000" autocomplete="off" id="cardnumber">
+        <span class="form__error" id="cardnumber-error">Error span</span>  
+      </div>
+      
 
-  000
+      <div class="form__date_cvc_container">
+        <div class="form__date_inputs_container">
+          <label for="expmonth">EXP. DATE (MM/YY)</label>
+          <div>
+            <input type="text" placeholder="MM" autocomplete="off" id="month" list="available-months">
+            <datalist id="available-months">
+              <option value="01"></option>
+              <option value="02"></option>
+              <option value="03"></option>
+              <option value="04"></option>
+              <option value="05"></option>
+              <option value="06"></option>
+              <option value="07"></option>
+              <option value="08"></option>
+              <option value="09"></option>
+              <option value="10"></option>
+              <option value="11"></option>
+              <option value="12"></option>
+            </datalist>
+            <input type="text" placeholder="YY" autocomplete="off" id="year" list="available-years">
+            <datalist id="available-years">
+              <option value="23"></option>
+              <option value="24"></option>
+              <option value="25"></option>
+              <option value="26"></option>
+              <option value="27"></option>
+              <option value="28"></option>
+              <option value="29"></option>
+              <option value="30"></option>
+            </datalist>
+          </div>
+          <span class="form__error" id="dateError">Error span</span>
+        </div>
 
-  Cardholder Name
-  e.g. Jane Appleseed
+        <div class="form__cvc_inputs_container">
+          <label for="cvc">CVC</label>
+          <input type="text" placeholder="e.g. 123" autocomplete="off" id="cvc">
+          <span class="form__error" id="cvcError">Error span</span>
+        </div>
+      </div>
 
-  Card Number
-  e.g. 1234 5678 9123 0000
+      <button type="button" onclick="validateForm()">Confirm</button>
+    </form>
 
-  Exp. Date (MM/YY)
-  MM
-  YY
+    <div class="main__success">
+      <div class="success__icon_container">
+        <img src="./images/icon-complete.svg" alt="success icon">
+      </div>
 
-  CVC
-  e.g. 123
+      <div class="success__text">
+        <h1>THANK YOU!</h1>
+        <p>We've added your card details</p>
+      </div>
 
-  Confirm
+      <button type="button">Continue</button>
+    </div>
+  </main>
 
-  <!-- Completed state start -->
-
-  Thank you!
-  We've added your card details
-  Continue
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <script src="./index.js"></script>
 </body>
 </html>
